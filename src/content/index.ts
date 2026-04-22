@@ -6,3 +6,4 @@
  */
 
 export * from './workshops'
+export * from './entrepreneurs'

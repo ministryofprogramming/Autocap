@@ -50,15 +50,15 @@ export function Header() {
           {/* Desktop navigation */}
           <div className="hidden lg:flex lg:gap-x-8">
             {NAVIGATION_LINKS.map((link) => {
-              const isActive = pathname === link.href
+              // Match exact path or any subpath (e.g., /entrepreneurs matches /entrepreneurs/why)
+              const isActive =
+                pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
               return (
                 <Link
                   key={link.href}
                   href={link.href}
                   className={`text-sm font-medium transition-colors hover:text-[#C8102E] ${
-                    isActive
-                      ? 'text-[#C8102E]'
-                      : 'text-gray-700'
+                    isActive ? 'text-[#C8102E]' : 'text-gray-700'
                   }`}
                 >
                   {link.label}
@@ -73,15 +73,15 @@ export function Header() {
           <div className="lg:hidden">
             <div className="space-y-2 pb-6 pt-6">
               {NAVIGATION_LINKS.map((link) => {
-                const isActive = pathname === link.href
+                // Match exact path or any subpath (e.g., /entrepreneurs matches /entrepreneurs/why)
+                const isActive =
+                  pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href))
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
                     className={`block rounded-lg px-3 py-2 text-base font-semibold transition-colors hover:bg-gray-50 ${
-                      isActive
-                        ? 'text-[#C8102E] bg-gray-50'
-                        : 'text-gray-900'
+                      isActive ? 'text-[#C8102E] bg-gray-50' : 'text-gray-900'
                     }`}
                     onClick={() => setMobileMenuOpen(false)}
                   >
