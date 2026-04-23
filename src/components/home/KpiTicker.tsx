@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect } from 'react'
+import { Building2, Users, TrendingUp, Target } from 'lucide-react'
 import { useCountUp } from '@/hooks/useCountUp'
 import { useScrollAnimation } from '@/hooks/useScrollAnimation'
 
@@ -15,7 +16,9 @@ interface KpiTickerProps {
   kpis: Kpi[]
 }
 
-function KpiCard({ kpi }: { kpi: Kpi }) {
+const iconMap = [Building2, Users, TrendingUp, Target]
+
+function KpiCard({ kpi, index }: { kpi: Kpi; index: number }) {
   const counter = useCountUp({
     end: kpi.value,
     duration: 2000,
@@ -31,28 +34,41 @@ function KpiCard({ kpi }: { kpi: Kpi }) {
     }
   }, [isInView, counter])
 
+  const Icon = iconMap[index]
+
   return (
     <div
       ref={ref as React.RefObject<HTMLDivElement>}
-      className="flex flex-col items-center text-center p-6"
+      className="group relative flex flex-col items-center p-8 text-center"
     >
-      <div className="text-5xl md:text-6xl font-bold text-white mb-3">
-        {counter.value}
+      {/* Icon Badge */}
+      <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-xl bg-white/5 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/10">
+        <Icon className="h-8 w-8 text-[#C8102E]" strokeWidth={2} />
       </div>
-      <div className="text-sm text-gray-400 leading-relaxed max-w-xs">
-        {kpi.label}
-      </div>
+
+      {/* Counter */}
+      <div className="mb-3 text-6xl font-black text-white md:text-7xl">{counter.value}</div>
+
+      {/* Decorative Line */}
+      <div className="mb-4 h-1 w-16 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent opacity-60" />
+
+      {/* Label */}
+      <div className="max-w-xs text-base leading-relaxed text-gray-400">{kpi.label}</div>
     </div>
   )
 }
 
 export function KpiTicker({ kpis }: KpiTickerProps) {
   return (
-    <section className="bg-[#1C1C1E] py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#1C1C1E] via-[#2C2C2E] to-[#1C1C1E] py-20 md:py-28">
+      {/* Decorative Glow */}
+      <div className="absolute left-1/4 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#C8102E] opacity-10 blur-3xl" />
+      <div className="absolute right-1/4 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#C8102E] opacity-10 blur-3xl" />
+
+      <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {kpis.map((kpi, index) => (
-            <KpiCard key={index} kpi={kpi} />
+            <KpiCard key={index} kpi={kpi} index={index} />
           ))}
         </div>
       </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { motion } from 'framer-motion'
+import { Quote } from 'lucide-react'
 
 interface CeoQuoteProps {
   text: string
@@ -10,22 +11,42 @@ interface CeoQuoteProps {
 
 export function CeoQuote({ text, attribution }: CeoQuoteProps) {
   return (
-    <section className="bg-[#F5F0EB] py-20 md:py-28">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F0EB] via-[#EDE8E3] to-[#F5F0EB] py-24 md:py-32">
+      {/* Subtle Pattern Overlay */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #1C1C1E 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-5xl px-6 lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="text-center"
         >
+          {/* Quote Icon */}
+          <div className="mb-8 inline-flex items-center justify-center">
+            <div className="rounded-xl bg-white p-3">
+              <Quote className="h-8 w-8 text-[#C8102E]" strokeWidth={2} />
+            </div>
+          </div>
+
           <blockquote>
-            <p className="text-2xl md:text-3xl font-medium leading-relaxed text-[#1C1C1E] mb-8">
+            <p className="mb-8 text-3xl font-bold leading-relaxed text-[#1C1C1E] md:text-4xl md:leading-relaxed lg:text-5xl lg:leading-relaxed">
               &ldquo;{text}&rdquo;
             </p>
-            <footer className="text-lg text-[#1C1C1E]/70">
-              — {attribution}
-            </footer>
+
+            {/* Decorative Line */}
+            <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+
+            <footer className="text-xl font-semibold text-[#1C1C1E]/70">— {attribution}</footer>
           </blockquote>
         </motion.div>
       </div>

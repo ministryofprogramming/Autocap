@@ -2,6 +2,7 @@
 
 import Link from 'next/link'
 import { motion } from 'framer-motion'
+import { ArrowRight, MessageCircle } from 'lucide-react'
 
 interface FooterCtaProps {
   headline: string
@@ -12,25 +13,49 @@ interface FooterCtaProps {
 
 export function FooterCta({ headline, subtext, ctaText, ctaLink }: FooterCtaProps) {
   return (
-    <section className="bg-white py-20 md:py-24">
-      <div className="mx-auto max-w-4xl px-6 lg:px-8 text-center">
+    <section className="relative overflow-hidden bg-white py-24 md:py-32">
+      {/* Subtle Pattern Overlay */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div
+          className="h-full w-full"
+          style={{
+            backgroundImage: 'radial-gradient(circle, #1C1C1E 1px, transparent 1px)',
+            backgroundSize: '32px 32px',
+          }}
+        />
+      </div>
+
+      <div className="relative mx-auto max-w-4xl px-6 text-center lg:px-8">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-[#1C1C1E] mb-4">
+          {/* Icon Badge */}
+          <div className="mb-8 inline-flex items-center justify-center">
+            <div className="rounded-xl bg-[#F5F0EB] p-3">
+              <MessageCircle className="h-8 w-8 text-[#C8102E]" strokeWidth={2} />
+            </div>
+          </div>
+
+          <h2 className="mb-6 text-4xl font-black text-[#1C1C1E] md:text-5xl lg:text-6xl">
             {headline}
           </h2>
-          <p className="text-lg text-[#1C1C1E]/70 mb-8 max-w-2xl mx-auto">
+
+          {/* Decorative Line */}
+          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+
+          <p className="mx-auto mb-12 max-w-2xl text-xl leading-relaxed text-[#1C1C1E]/70 md:text-2xl">
             {subtext}
           </p>
+
           <Link
             href={ctaLink}
-            className="inline-block rounded-md bg-[#C8102E] px-8 py-4 text-base font-semibold text-white shadow-sm hover:bg-[#A00D24] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#C8102E] transition-all duration-200 hover:scale-105"
+            className="group inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-[#C8102E] to-[#A00D25] px-10 py-5 text-xl font-bold text-white transition-all duration-300 hover:scale-105"
           >
             {ctaText}
+            <ArrowRight className="h-6 w-6 transition-transform duration-300 group-hover:translate-x-1" />
           </Link>
         </motion.div>
       </div>
