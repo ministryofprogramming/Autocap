@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { COMPANY_INFO, NAVIGATION_LINKS } from '@/lib/constants'
 
 export function Footer() {
@@ -15,7 +16,15 @@ export function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
           {/* Company info */}
           <div className="md:col-span-1">
-            <h3 className="text-lg font-semibold mb-4">AutoCap Group</h3>
+            <div className="mb-4">
+              <Image
+                src="/logos/autocap-white.png"
+                alt="AutoCap Group"
+                width={160}
+                height={40}
+                className="h-10 w-auto"
+              />
+            </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               {COMPANY_INFO.tagline}
             </p>
