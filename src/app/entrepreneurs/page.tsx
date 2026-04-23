@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { ArrowRight, Handshake } from 'lucide-react'
 import { entrepreneursContent } from '@/content/entrepreneurs'
+import { TestimonialsSection } from '@/components/entrepreneurs/TestimonialsSection'
 
 export const metadata: Metadata = {
   title: 'For Workshop Owners · AutoCap Group',
@@ -64,6 +65,9 @@ export default function EntrepreneursPage() {
           </div>
         </div>
       </section>
+
+      {/* Testimonials Section */}
+      <TestimonialsSection />
     </main>
   )
 }
