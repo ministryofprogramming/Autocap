@@ -119,4 +119,42 @@ describe('NewsCard', () => {
       expect(heading).toBeInTheDocument()
     })
   })
+
+  describe('AC-015: NewsCard Clickable', () => {
+    it('wraps entire card with Link component', () => {
+      const { container } = render(<NewsCard article={mockArticle} />)
+
+      const link = container.querySelector('a')
+      expect(link).toBeInTheDocument()
+    })
+
+    it('navigates to article detail page with correct slug', () => {
+      const { container } = render(<NewsCard article={mockArticle} />)
+
+      const link = container.querySelector('a')
+      expect(link).toHaveAttribute('href', '/news/autocap-acquires-svenska-dackgruppen')
+    })
+
+    it('applies cursor-pointer styling', () => {
+      const { container } = render(<NewsCard article={mockArticle} />)
+
+      const link = container.querySelector('a')
+      expect(link).toHaveClass('cursor-pointer')
+    })
+
+    it('is keyboard accessible', () => {
+      const { container } = render(<NewsCard article={mockArticle} />)
+
+      const link = container.querySelector('a')
+      expect(link).toBeInTheDocument()
+      expect(link?.tagName.toLowerCase()).toBe('a')
+    })
+
+    it('has no nested links', () => {
+      const { container } = render(<NewsCard article={mockArticle} />)
+
+      const links = container.querySelectorAll('a')
+      expect(links.length).toBe(1)
+    })
+  })
 })

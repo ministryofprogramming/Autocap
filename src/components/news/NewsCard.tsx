@@ -1,5 +1,6 @@
 'use client'
 
+import Link from 'next/link'
 import Image from 'next/image'
 import { NewsCategoryBadge } from './NewsCategoryBadge'
 import { NewsImagePlaceholder } from './NewsImagePlaceholder'
@@ -25,18 +26,19 @@ export function NewsCard({ article }: NewsCardProps) {
   }
 
   return (
-    <article
-      ref={ref as React.RefObject<HTMLElement>}
-      className={cn(
-        'group overflow-hidden rounded-lg border-2 border-gray-200 bg-white',
-        'transition-all duration-300 hover:-translate-y-1 hover:border-[#C8102E]',
-        'opacity-0 translate-y-4',
-        isInView && 'opacity-100 translate-y-0'
-      )}
-      style={{
-        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
-      }}
-    >
+    <Link href={`/news/${article.slug}`} className="cursor-pointer">
+      <article
+        ref={ref as React.RefObject<HTMLElement>}
+        className={cn(
+          'group overflow-hidden rounded-lg border-2 border-gray-200 bg-white',
+          'transition-all duration-300 hover:-translate-y-1 hover:border-[#C8102E]',
+          'opacity-0 translate-y-4',
+          isInView && 'opacity-100 translate-y-0'
+        )}
+        style={{
+          transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+        }}
+      >
       {/* Image Section */}
       <div className="relative aspect-video w-full overflow-hidden">
         {article.imageUrl ? (
@@ -76,5 +78,6 @@ export function NewsCard({ article }: NewsCardProps) {
         </div>
       </div>
     </article>
+    </Link>
   )
 }

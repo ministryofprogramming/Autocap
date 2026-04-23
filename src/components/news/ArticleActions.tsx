@@ -1,0 +1,31 @@
+'use client'
+
+import Link from 'next/link'
+import { ArrowLeft, Printer } from 'lucide-react'
+
+export function ArticleActions() {
+  const handlePrint = () => {
+    window.print()
+  }
+
+  return (
+    <div className="my-8 flex gap-4">
+      <Link
+        href="/news"
+        className="flex items-center gap-2 text-[#C8102E] transition-colors hover:text-[#A00D24]"
+      >
+        <ArrowLeft className="h-5 w-5" />
+        <span>Back to News</span>
+      </Link>
+
+      <button
+        onClick={handlePrint}
+        className="flex items-center gap-2 text-gray-600 transition-colors hover:text-gray-900"
+        aria-label="Print"
+      >
+        <Printer className="h-5 w-5" />
+        <span>Print</span>
+      </button>
+    </div>
+  )
+}
