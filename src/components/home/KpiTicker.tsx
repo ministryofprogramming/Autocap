@@ -32,7 +32,7 @@ function KpiCard({ kpi, index }: { kpi: Kpi; index: number }) {
     if (isInView && !counter.hasAnimated) {
       counter.animate()
     }
-  }, [isInView, counter])
+  }, [isInView, counter.hasAnimated, counter.animate])
 
   const Icon = iconMap[index]
 
@@ -61,10 +61,6 @@ function KpiCard({ kpi, index }: { kpi: Kpi; index: number }) {
 export function KpiTicker({ kpis }: KpiTickerProps) {
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-[#1C1C1E] via-[#2C2C2E] to-[#1C1C1E] py-20 md:py-28">
-      {/* Decorative Glow */}
-      <div className="absolute left-1/4 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#C8102E] opacity-10 blur-3xl" />
-      <div className="absolute right-1/4 top-1/2 h-96 w-96 -translate-y-1/2 rounded-full bg-[#C8102E] opacity-10 blur-3xl" />
-
       <div className="relative mx-auto max-w-7xl px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {kpis.map((kpi, index) => (

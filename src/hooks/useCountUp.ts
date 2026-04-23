@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 
 interface UseCountUpOptions {
   end: number
@@ -18,7 +18,7 @@ export function useCountUp({
   const countRef = useRef(0)
   const frameRef = useRef<number | undefined>(undefined)
 
-  const animate = () => {
+  const animate = useCallback(() => {
     if (hasAnimated) return
 
     const startTime = Date.now()
@@ -44,7 +44,7 @@ export function useCountUp({
     }
 
     frameRef.current = requestAnimationFrame(updateCount)
-  }
+  }, [hasAnimated, duration, end])
 
   useEffect(() => {
     return () => {
