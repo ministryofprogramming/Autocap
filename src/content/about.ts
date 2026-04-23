@@ -25,6 +25,7 @@ export interface AboutContent {
       year: string
       title: string
       description: string
+      status: 'completed' | 'current' | 'future'
     }>
   }
   differentiators: {
@@ -111,26 +112,31 @@ export const aboutContent: AboutContent = {
         year: 'Founding',
         title: 'AutoCap Group Founded',
         description: 'Launched with a vision to consolidate the tire services market differently',
+        status: 'completed',
       },
       {
         year: 'First Acquisition',
         title: 'Stockholm Expansion',
         description: 'Acquired first workshops in the Stockholm region',
+        status: 'completed',
       },
       {
         year: 'Geographic Growth',
         title: 'Västra Götaland',
         description: 'Expanded to Västra Götaland, establishing regional presence',
+        status: 'completed',
       },
       {
         year: 'Today',
         title: '12 Workshops',
         description: '12 workshops, ~50 employees, ~200 MSEK revenue run-rate',
+        status: 'current',
       },
       {
         year: '2028 Target',
         title: '50+ Workshops',
         description: 'Ambitious but achievable target for continued growth',
+        status: 'future',
       },
     ],
   },

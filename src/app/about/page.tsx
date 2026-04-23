@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Building2, ArrowRight, CheckCircle2 } from 'lucide-react'
 import { aboutContent } from '@/content/about'
 import { ValueCard } from '@/components/about/ValueCard'
-import { TimelineMilestone } from '@/components/about/TimelineMilestone'
+import { SteppedTimeline } from '@/components/about/SteppedTimeline'
 
 export const metadata: Metadata = {
   title: 'About AutoCap Group',
@@ -119,12 +119,8 @@ export default function AboutPage() {
 
           <div className="mx-auto mb-12 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
 
-          {/* Timeline Grid */}
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            {timeline.milestones.map((milestone, index) => (
-              <TimelineMilestone key={index} milestone={milestone} index={index} />
-            ))}
-          </div>
+          {/* Stepped Timeline */}
+          <SteppedTimeline milestones={timeline.milestones} />
         </div>
       </section>
 
