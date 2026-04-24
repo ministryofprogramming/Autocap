@@ -6,6 +6,7 @@ import Image from 'next/image'
 import { Menu, X, ChevronDown } from 'lucide-react'
 import { NAVIGATION_LINKS } from '@/lib/constants'
 import { usePathname } from 'next/navigation'
+import { LanguageSelector } from './LanguageSelector'
 
 type NavLink = {
   label: string
@@ -67,7 +68,7 @@ export function Header() {
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden lg:flex lg:gap-x-8">
+          <div className="hidden lg:flex lg:items-center lg:gap-x-8">
             {NAVIGATION_LINKS.map((link) => {
               const isActive = isLinkActive(link)
 
@@ -126,6 +127,9 @@ export function Header() {
                 </Link>
               )
             })}
+
+            {/* Language Selector */}
+            <LanguageSelector className="ml-4" />
           </div>
         </div>
 
@@ -193,6 +197,11 @@ export function Header() {
                   </Link>
                 )
               })}
+
+              {/* Language Selector in Mobile Menu */}
+              <div className="border-t border-gray-200 pt-4 mt-4">
+                <LanguageSelector className="justify-center" />
+              </div>
             </div>
           </div>
         )}
