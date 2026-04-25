@@ -3,7 +3,6 @@ import Link from 'next/link'
 import { Building2, CheckCircle2 } from 'lucide-react'
 import { aboutContent } from '@/content/about'
 import { ValueCard } from '@/components/about/ValueCard'
-import { SteppedTimeline } from '@/components/about/SteppedTimeline'
 
 export const metadata: Metadata = {
   title: 'About AutoCap Group · Built by entrepreneurs, run with discipline',
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
 }
 
 export default function AboutPage() {
-  const { hero, story, mission, values, timeline, differentiators, closing } = aboutContent
+  const { hero, story, mission, values, differentiators, closing } = aboutContent
 
   return (
     <main className="min-h-screen">
@@ -109,20 +108,6 @@ export default function AboutPage() {
       {values.map((value, index) => (
         <ValueCard key={value.id} value={value} index={index} />
       ))}
-
-      {/* Timeline */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#EDE4D8] via-[#DDD3C8] to-[#EDE4D8] py-20 md:py-28">
-        <div className="mx-auto max-w-6xl px-6 md:px-8">
-          <h2 className="mb-12 text-center text-4xl font-black text-[#1C1C1E] md:text-5xl lg:text-6xl">
-            {timeline.title}
-          </h2>
-
-          <div className="mx-auto mb-12 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
-
-          {/* Stepped Timeline */}
-          <SteppedTimeline milestones={timeline.milestones} />
-        </div>
-      </section>
 
       {/* Differentiators */}
       <section className="relative overflow-hidden bg-gradient-to-br from-[#F5F0EB] to-[#EDE8E3] py-20 md:py-28">
