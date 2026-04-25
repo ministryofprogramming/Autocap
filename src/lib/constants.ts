@@ -24,6 +24,7 @@ export const NAVIGATION_LINKS = [
     href: '/about',
     submenu: [
       { label: 'Company Overview', href: '/about' },
+      { label: 'Our Story', href: '/about/story' },
       { label: 'Leadership & Board', href: '/about/team' },
     ]
   },
