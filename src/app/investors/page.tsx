@@ -3,9 +3,8 @@ import { TrendingUp } from 'lucide-react'
 import { investorsContent } from '@/content/investors'
 
 export const metadata = {
-  title: 'For Investors · AutoCap Group',
-  description:
-    "Consolidating Sweden's fragmented tire services market. Proven playbook, resilient business model, founder-led execution.",
+  title: 'Investors · AutoCap Group',
+  description: "Consolidating Sweden's fragmented tire service market. Explore the investment case and team.",
 }
 
 export default function InvestorsPage() {

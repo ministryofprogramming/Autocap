@@ -3,9 +3,8 @@ import { teamContent } from '@/content/team'
 import { ProfileCard } from '@/components/team/ProfileCard'
 
 export const metadata: Metadata = {
-  title: 'Leadership & Board | AutoCap Group',
-  description:
-    'AutoCap Group is led by a team with deep experience in both the entrepreneurial and investment realms.',
+  title: 'Leadership & Board · AutoCap Group',
+  description: 'Meet the team behind AutoCap Group — entrepreneurs, industry veterans, and investors.',
 }
 
 export default function TeamPage() {

@@ -5,8 +5,8 @@ import { GeneralContactForm } from '@/components/contact/GeneralContactForm'
 import { CompanyInfo } from '@/components/contact/CompanyInfo'
 
 export const metadata: Metadata = {
-  title: 'Contact Us · AutoCap Group',
-  description: 'Get in touch with AutoCap Group - whether you are an investor, workshop owner, or have a general inquiry.',
+  title: 'Contact · AutoCap Group',
+  description: 'Get in touch — for workshop owners, investors, media, or general enquiries.',
 }
 
 export default function ContactPage() {

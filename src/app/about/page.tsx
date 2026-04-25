@@ -6,9 +6,9 @@ import { ValueCard } from '@/components/about/ValueCard'
 import { SteppedTimeline } from '@/components/about/SteppedTimeline'
 
 export const metadata: Metadata = {
-  title: 'About AutoCap Group',
+  title: 'About AutoCap Group · Built by entrepreneurs, run with discipline',
   description:
-    "We're building Sweden's tire services platform - preserving local brands while creating operational scale. Learn our story, mission, and approach.",
+    'Nordic consolidation platform for tire service centres — founder-led, privately held, and built to grow.',
 }
 
 export default function AboutPage() {

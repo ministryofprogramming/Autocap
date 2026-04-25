@@ -1,7 +1,8 @@
 'use client'
 
 import { useState, useMemo } from 'react'
-import { Newspaper } from 'lucide-react'
+import Link from 'next/link'
+import { Newspaper, FileText } from 'lucide-react'
 import { newsContent } from '@/content/news'
 import { NewsGrid } from '@/components/news/NewsGrid'
 import { CategoryFilter } from '@/components/news/CategoryFilter'
@@ -44,9 +45,20 @@ export default function NewsPage() {
           <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
 
           {/* Subheadline */}
-          <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
+          <p className="mx-auto mb-8 max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
             Company updates, industry insights, and press coverage
           </p>
+
+          {/* Media Kit Link */}
+          <div className="mb-12">
+            <Link
+              href="/news/media-kit"
+              className="inline-flex items-center gap-2 rounded-lg bg-white px-6 py-3 text-sm font-semibold text-[#C8102E] shadow-sm transition-all hover:shadow-md hover:bg-gray-50"
+            >
+              <FileText className="h-5 w-5" />
+              Media Kit & Press Resources
+            </Link>
+          </div>
 
           {/* Category Filter */}
           <div className="mx-auto max-w-4xl">
