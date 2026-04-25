@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import Image from 'next/image'
 import { COMPANY_INFO, NAVIGATION_LINKS } from '@/lib/constants'
+import { CookieSettingsButton } from '@/components/cookie/CookieSettingsButton'
 
 export function Footer() {
   const footerSections = {
@@ -78,6 +79,17 @@ export function Footer() {
                   </Link>
                 </li>
               ))}
+              <li>
+                <Link
+                  href="/privacy-policy"
+                  className="text-sm text-gray-400 hover:text-white transition-colors"
+                >
+                  Privacy Policy
+                </Link>
+              </li>
+              <li>
+                <CookieSettingsButton />
+              </li>
             </ul>
           </div>
         </div>
