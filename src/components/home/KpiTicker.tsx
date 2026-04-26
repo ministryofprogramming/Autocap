@@ -32,6 +32,7 @@ function KpiCard({ kpi, index }: { kpi: Kpi; index: number }) {
     if (isInView && !counter.hasAnimated) {
       counter.animate()
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isInView, counter.hasAnimated, counter.animate])
 
   const Icon = iconMap[index]

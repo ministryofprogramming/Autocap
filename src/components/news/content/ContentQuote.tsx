@@ -13,7 +13,7 @@ export function ContentQuote({ content, attribution, role }: ContentQuoteProps) 
         <Quote className="h-8 w-8 flex-shrink-0 text-[#C8102E]" />
         <div>
           <blockquote className="text-2xl font-bold leading-relaxed text-[#1C1C1E]">
-            "{content}"
+            &ldquo;{content}&rdquo;
           </blockquote>
           {attribution && (
             <div className="mt-4">

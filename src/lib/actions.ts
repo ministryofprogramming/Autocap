@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 "use server"
 import { invoiceSchema, userProfileSchema, newsletterSchema, type FormState } from "@/lib/schemas"
 import { revalidatePath } from "next/cache"

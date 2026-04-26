@@ -9,19 +9,23 @@ import type { CookiePreferences } from '@/lib/cookieConsent'
 export function CookieConsent() {
   const context = useCookieConsentContext()
 
+  // Local state for modal - must be called before any early returns
+  const [localPreferences, setLocalPreferences] = useState<CookiePreferences>(
+    context?.preferences || { necessary: true, analytics: false, marketing: false }
+  )
+
+  // Sync local preferences when modal opens or global preferences change
+  useEffect(() => {
+    if (context?.preferences) {
+      setLocalPreferences(context.preferences)
+    }
+  }, [context?.preferences, context?.showPreferencesModal])
+
   if (!context) {
     return null
   }
 
-  const { showBanner, showPreferencesModal, acceptAll, openPreferences, closePreferences, setCustomPreferences, preferences } = context
-
-  // Local state for modal - allows users to toggle settings before saving
-  const [localPreferences, setLocalPreferences] = useState<CookiePreferences>(preferences)
-
-  // Sync local preferences when modal opens or global preferences change
-  useEffect(() => {
-    setLocalPreferences(preferences)
-  }, [preferences, showPreferencesModal])
+  const { showBanner, showPreferencesModal, acceptAll, openPreferences, closePreferences, setCustomPreferences } = context
 
   const handleSavePreferences = () => {
     setCustomPreferences(localPreferences)

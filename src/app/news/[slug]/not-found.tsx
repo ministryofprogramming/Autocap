@@ -14,7 +14,7 @@ export default function ArticleNotFound() {
         <h1 className="mb-4 text-4xl font-black text-[#1C1C1E]">Article Not Found</h1>
 
         <p className="mb-8 text-lg text-gray-600">
-          The article you're looking for doesn't exist or has been removed.
+          The article you&apos;re looking for doesn&apos;t exist or has been removed.
         </p>
 
         <Link
