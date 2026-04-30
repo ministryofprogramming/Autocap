@@ -192,3 +192,10 @@ export const getTotalWorkshops = () => workshops.length
 
 export const getRegions = () =>
   [...new Set(workshops.map(w => w.region))]
+
+/**
+ * Get unique cities from all workshops, sorted alphabetically
+ */
+export const getCities = (): string[] => {
+  return [...new Set(workshops.map(w => w.city))].sort()
+}
