@@ -15,7 +15,7 @@ export function LatestNewsStrip() {
           <h2 className="text-4xl font-black text-[#1C1C1E] md:text-5xl lg:text-6xl">
             Latest News
           </h2>
-          <div className="mx-auto mt-6 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mt-6 h-1 w-24 bg-[#C8102E]" />
         </div>
 
         {/* News Grid */}

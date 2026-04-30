@@ -20,7 +20,7 @@ export default function MediaKitPage() {
           <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
             {mediaKitContent.hero.description}
           </p>
-          <div className="mx-auto mt-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mt-8 h-1 w-24 bg-[#C8102E]" />
         </div>
       </section>
 

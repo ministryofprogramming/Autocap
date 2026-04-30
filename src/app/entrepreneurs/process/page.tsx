@@ -38,7 +38,7 @@ export default function ProcessPage() {
               How It Works
             </h1>
 
-            <div className="mx-auto mb-6 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#C8102E]" />
 
             <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-700 md:text-2xl">
               {process.intro}
@@ -78,7 +78,7 @@ export default function ProcessPage() {
             Ready to take the first step?
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
             Every acquisition begins with a simple, confidential conversation. No pressure, no

@@ -57,7 +57,7 @@ export function WorkshopGrid({ workshops }: WorkshopGridProps) {
             </div>
             <h2 className="text-3xl font-bold text-[#1C1C1E] md:text-4xl">All Workshops</h2>
           </div>
-          <div className="h-1 w-24 bg-gradient-to-r from-[#C8102E] to-transparent" />
+          <div className="h-1 w-24 bg-[#C8102E]" />
         </div>
 
         {/* Search Bar with City Dropdown */}

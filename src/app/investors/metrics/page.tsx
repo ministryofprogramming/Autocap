@@ -35,7 +35,7 @@ export default function InvestorsMetricsPage() {
               Growth Metrics
             </h1>
 
-            <div className="mx-auto mb-6 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#C8102E]" />
 
             <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-700 md:text-2xl">
               {metrics.intro}
@@ -72,7 +72,7 @@ export default function InvestorsMetricsPage() {
           <h2 className="mb-6 text-4xl font-black text-[#1C1C1E] md:text-5xl">
             The Road Ahead
           </h2>
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
           <p className="mb-12 text-xl leading-relaxed text-gray-700 md:text-2xl">
             {metrics.roadmap}
           </p>

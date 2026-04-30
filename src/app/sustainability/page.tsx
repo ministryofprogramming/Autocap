@@ -38,7 +38,7 @@ export default function SustainabilityPage() {
             </h1>
 
             {/* Decorative Line */}
-            <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+            <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
             {/* Subheadline/Intro */}
             <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
@@ -55,7 +55,7 @@ export default function SustainabilityPage() {
             {sustainabilityContent.whereWeAre.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mb-12 text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
             {sustainabilityContent.whereWeAre.description}
@@ -84,7 +84,7 @@ export default function SustainabilityPage() {
             {sustainabilityContent.whereWeAreGoing.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <div className="space-y-6">
             <p className="text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
@@ -104,7 +104,7 @@ export default function SustainabilityPage() {
             {sustainabilityContent.governance.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <div className="space-y-6">
             <p className="text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">

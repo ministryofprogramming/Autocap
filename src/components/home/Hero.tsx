@@ -61,7 +61,7 @@ export function Hero({
           </h1>
 
           {/* Decorative Line */}
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mx-auto mt-6 max-w-3xl text-xl leading-8 text-gray-200 sm:text-2xl md:leading-relaxed">
             {subheadline}

@@ -36,7 +36,7 @@ export default function PortfolioPage() {
           </h1>
 
           {/* Decorative Line */}
-          <div className="mb-8 h-1 w-24 bg-gradient-to-r from-[#C8102E] to-transparent" />
+          <div className="mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl">
             AutoCap Group&apos;s portfolio spans 12 tire service centres across Sweden — from

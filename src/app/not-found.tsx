@@ -16,7 +16,7 @@ export default function NotFound() {
         <h1 className="mb-4 text-4xl font-black text-[#1C1C1E] md:text-5xl">Wrong turn.</h1>
 
         {/* Decorative line */}
-        <div className="mx-auto mb-6 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+        <div className="mx-auto mb-6 h-1 w-24 bg-[#C8102E]" />
 
         {/* Message */}
         <p className="mb-8 max-w-md text-lg text-gray-600 md:text-xl">

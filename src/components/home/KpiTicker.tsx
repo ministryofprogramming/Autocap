@@ -51,7 +51,7 @@ function KpiCard({ kpi, index }: { kpi: Kpi; index: number }) {
       <div className="mb-3 text-6xl font-black text-white md:text-7xl">{counter.value}</div>
 
       {/* Decorative Line */}
-      <div className="mb-4 h-1 w-16 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent opacity-60" />
+      <div className="mb-4 h-1 w-16 bg-[#C8102E] opacity-60" />
 
       {/* Label */}
       <div className="max-w-xs text-base leading-relaxed text-gray-400">{kpi.label}</div>

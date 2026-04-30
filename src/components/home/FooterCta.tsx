@@ -44,7 +44,7 @@ export function FooterCta({ headline, subtext, ctaText, ctaLink }: FooterCtaProp
           </h2>
 
           {/* Decorative Line */}
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mx-auto mb-12 max-w-2xl text-xl leading-relaxed text-[#1C1C1E]/70 md:text-2xl">
             {subtext}

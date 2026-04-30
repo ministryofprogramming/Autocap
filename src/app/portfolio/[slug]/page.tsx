@@ -84,7 +84,7 @@ export default async function WorkshopDetailPage({ params }: WorkshopDetailPageP
           </h1>
 
           {/* Decorative Line */}
-          <div className="mb-8 h-1 w-24 bg-gradient-to-r from-[#C8102E] to-transparent" />
+          <div className="mb-8 h-1 w-24 bg-[#C8102E]" />
 
           {/* Location */}
           <div className="mb-6 flex items-center gap-2 text-xl text-gray-600">
@@ -152,7 +152,7 @@ export default async function WorkshopDetailPage({ params }: WorkshopDetailPageP
                 Own a tire service workshop?
               </h2>
 
-              <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+              <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
               <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-700">
                 Learn what joining AutoCap Group could mean for you.

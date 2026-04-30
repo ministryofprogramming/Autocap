@@ -44,7 +44,7 @@ export function CeoQuote({ text, attribution }: CeoQuoteProps) {
             </p>
 
             {/* Decorative Line */}
-            <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+            <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
             <footer className="text-xl font-semibold text-[#1C1C1E]/70">— {attribution}</footer>
           </blockquote>

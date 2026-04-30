@@ -11,7 +11,7 @@ export function TestimonialsSection() {
         </h2>
 
         {/* Decorative Line */}
-        <div className="mx-auto mb-12 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+        <div className="mx-auto mb-12 h-1 w-24 bg-[#C8102E]" />
 
         {/* Testimonials Grid */}
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">

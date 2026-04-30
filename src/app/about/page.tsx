@@ -43,7 +43,7 @@ export default function AboutPage() {
             </h1>
 
             {/* Decorative Line */}
-            <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+            <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
             {/* Subheadline */}
             <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
@@ -66,7 +66,7 @@ export default function AboutPage() {
             {story.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <div className="space-y-6">
             {story.paragraphs.map((paragraph, index) => (
@@ -88,7 +88,7 @@ export default function AboutPage() {
             {mission.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mb-12 text-xl leading-relaxed text-gray-700 md:text-2xl md:leading-relaxed">
             {mission.statement}
@@ -116,7 +116,7 @@ export default function AboutPage() {
             {differentiators.title}
           </h2>
 
-          <div className="mx-auto mb-12 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-12 h-1 w-24 bg-[#C8102E]" />
 
           {/* Differentiators Grid */}
           <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
@@ -152,7 +152,7 @@ export default function AboutPage() {
             {closing.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
             {closing.description}

@@ -36,7 +36,7 @@ export default function InvestorsWhyPage() {
               The Investment Case
             </h1>
 
-            <div className="mx-auto mb-6 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+            <div className="mx-auto mb-6 h-1 w-24 bg-[#C8102E]" />
 
             <p className="mx-auto max-w-2xl text-xl leading-relaxed text-gray-700 md:text-2xl">
               A proven playbook in an overlooked sector.{' '}
@@ -69,7 +69,7 @@ export default function InvestorsWhyPage() {
             {closingBlock.title}
           </h2>
 
-          <div className="mx-auto mb-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mb-8 h-1 w-24 bg-[#C8102E]" />
 
           <p className="mx-auto mb-12 max-w-3xl text-xl leading-relaxed text-gray-300 md:text-2xl">
             {closingBlock.description}

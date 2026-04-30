@@ -18,7 +18,7 @@ export default function StoryPage() {
           <h1 className="text-4xl font-black text-[#1C1C1E] md:text-5xl lg:text-6xl">
             {storyContent.hero.headline}
           </h1>
-          <div className="mx-auto mt-8 h-1 w-24 bg-gradient-to-r from-transparent via-[#C8102E] to-transparent" />
+          <div className="mx-auto mt-8 h-1 w-24 bg-[#C8102E]" />
         </div>
       </section>
 
