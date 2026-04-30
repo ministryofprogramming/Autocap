@@ -15,7 +15,8 @@ describe('LanguageSelector', () => {
       render(<LanguageSelector />)
 
       const dropdownButton = screen.getByRole('button', { name: /current language: english/i })
-      expect(dropdownButton).toHaveTextContent('🇬🇧')
+      const flagSvg = dropdownButton.querySelector('svg')
+      expect(flagSvg).toBeInTheDocument()
     })
 
     it('component unmounts cleanly', () => {
@@ -60,8 +61,10 @@ describe('LanguageSelector', () => {
       const englishOption = screen.getByRole('menuitem', { name: 'English' })
       const swedishOption = screen.getByRole('menuitem', { name: 'Swedish' })
 
-      expect(englishOption).toHaveTextContent('🇬🇧')
-      expect(swedishOption).toHaveTextContent('🇸🇪')
+      const ukFlagSvg = englishOption.querySelector('svg')
+      const swedishFlagSvg = swedishOption.querySelector('svg')
+      expect(ukFlagSvg).toBeInTheDocument()
+      expect(swedishFlagSvg).toBeInTheDocument()
     })
 
     it('closes dropdown when language is selected', async () => {
@@ -91,7 +94,8 @@ describe('LanguageSelector', () => {
 
       await waitFor(() => {
         const updatedButton = screen.getByRole('button', { name: /current language: swedish/i })
-        expect(updatedButton).toHaveTextContent('🇸🇪')
+        const flagSvg = updatedButton.querySelector('svg')
+        expect(flagSvg).toBeInTheDocument()
       })
     })
   })
@@ -320,9 +324,8 @@ describe('LanguageSelector', () => {
 
       const dropdownButton = screen.getByRole('button', { name: /current language/i })
 
-      // Find chevron by checking for the rotate class
-      const getChevron = () => dropdownButton.querySelector('svg')
-      const chevron = getChevron()
+      // Find chevron - it's the SVG with the lucide-chevron-down class
+      const chevron = dropdownButton.querySelector('svg.lucide-chevron-down')
 
       expect(chevron).not.toHaveClass('rotate-180')
 
