@@ -1,28 +1,25 @@
-import type { Metadata } from 'next'
-import { contactContent } from '@/content/contact'
-import { ContactCard } from '@/components/contact/ContactCard'
-import { GeneralContactForm } from '@/components/contact/GeneralContactForm'
-import { CompanyInfo } from '@/components/contact/CompanyInfo'
+import type { Metadata } from 'next';
+import { getContactContent } from '@/lib/cms/contact';
+import { ContactCard } from '@/components/contact/ContactCard';
+import { GeneralContactForm } from '@/components/contact/GeneralContactForm';
+import { CompanyInfo } from '@/components/contact/CompanyInfo';
 
 export const metadata: Metadata = {
   title: 'Contact · AutoCap Group',
   description: 'Get in touch — for workshop owners, investors, media, or general enquiries.',
-}
+};
 
-export default function ContactPage() {
-  const { hero, routing, specializedCards, generalInquiry, companyInfo } = contactContent
+export default async function ContactPage() {
+  const { hero, routing, specializedCards, generalInquiry, companyInfo, formLabels } =
+    await getContactContent();
 
   return (
     <main className="min-h-screen bg-gray-50">
       {/* Hero Section */}
       <section className="px-6 py-16 md:px-8 md:py-20">
         <div className="mx-auto max-w-4xl text-center">
-          <h1 className="mb-6 text-4xl font-bold text-[#1C1C1E] md:text-5xl">
-            {hero.title}
-          </h1>
-          <p className="text-lg leading-relaxed text-gray-700 md:text-xl">
-            {hero.description}
-          </p>
+          <h1 className="mb-6 text-4xl font-bold text-[#1C1C1E] md:text-5xl">{hero.title}</h1>
+          <p className="text-lg leading-relaxed text-gray-700 md:text-xl">{hero.description}</p>
         </div>
       </section>
 
@@ -48,7 +45,10 @@ export default function ContactPage() {
           <h2 className="mb-8 text-center text-3xl font-bold text-[#1C1C1E]">
             {generalInquiry.title}
           </h2>
-          <GeneralContactForm successMessage={generalInquiry.successMessage} />
+          <GeneralContactForm
+            successMessage={generalInquiry.successMessage}
+            formLabels={formLabels}
+          />
         </div>
       </section>
 
@@ -59,5 +59,5 @@ export default function ContactPage() {
         </div>
       </section>
     </main>
-  )
+  );
 }
