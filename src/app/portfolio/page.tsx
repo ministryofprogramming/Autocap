@@ -1,14 +1,16 @@
-import { MapPin, Building2 } from 'lucide-react'
-import { WorkshopMap } from '@/components/portfolio/WorkshopMap'
-import { WorkshopGrid } from '@/components/portfolio/WorkshopGrid'
-import { workshops } from '@/content/workshops'
+import { MapPin, Building2 } from 'lucide-react';
+import { WorkshopMap } from '@/components/portfolio/WorkshopMap';
+import { WorkshopGrid } from '@/components/portfolio/WorkshopGrid';
+import { getWorkshopsContent } from '@/lib/cms/workshop';
 
 export const metadata = {
   title: 'Our Portfolio · AutoCap Group',
-  description: "12 tire service workshops across Sweden. Explore AutoCap Group's growing portfolio.",
-}
+  description:
+    "12 tire service workshops across Sweden. Explore AutoCap Group's growing portfolio.",
+};
 
-export default function PortfolioPage() {
+export default async function PortfolioPage() {
+  const workshops = await getWorkshopsContent();
   return (
     <>
       {/* Page Header */}
@@ -66,5 +68,5 @@ export default function PortfolioPage() {
       {/* Workshop Grid */}
       <WorkshopGrid workshops={workshops} />
     </>
-  )
+  );
 }
