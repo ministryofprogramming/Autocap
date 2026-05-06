@@ -78,6 +78,8 @@ export async function getContent<TCms, TFinal = TCms>(
   }
 
   if (!res.ok) {
+    const body = await res.text().catch(() => '(unreadable)');
+    console.warn(`[CMS] ${slug}: response body →`, body);
     throw unavailable(slug, `HTTP ${res.status}`, res.status);
   }
 
