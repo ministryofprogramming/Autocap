@@ -30,28 +30,24 @@ export function GeneralContactForm({ successMessage, formLabels }: GeneralContac
   const onSubmit = async (data: GeneralContactFormData) => {
     setIsSubmitting(true);
 
-    // Prototype mode: Log data to console
-    console.log('📧 General Contact Enquiry Received:', {
-      timestamp: new Date().toISOString(),
-      data,
-    });
+    try {
+      const response = await fetch('/api/contact/general', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
 
-    // Simulate API call delay
-    await new Promise(resolve => setTimeout(resolve, 1000));
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
 
-    // Show success message
-    setIsSubmitted(true);
-    setIsSubmitting(false);
-
-    // Clear form
-    reset();
-
-    // Production TODO: Send to API endpoint
-    // const response = await fetch('/api/contact/general', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type': 'application/json' },
-    //   body: JSON.stringify(data),
-    // })
+      setIsSubmitted(true);
+      reset();
+    } catch (err) {
+      console.error('[Contact] Submission failed:', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
