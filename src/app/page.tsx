@@ -6,9 +6,10 @@ import { CeoQuote } from '@/components/home/CeoQuote';
 import { FooterCta } from '@/components/home/FooterCta';
 import { homepageContent, audienceCards } from '@/content/homepage';
 import { getArticlesContent } from '@/lib/cms/article';
+import { REVALIDATE_HIGH } from '@/lib/cms/revalidate';
 
 export default async function HomePage() {
-  const articles = await getArticlesContent();
+  const articles = await getArticlesContent(REVALIDATE_HIGH);
 
   return (
     <>
