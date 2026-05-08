@@ -27,3 +27,19 @@ export const EntrepreneurSchema = z.object({
 });
 
 export type EntrepreneurFormData = z.infer<typeof EntrepreneurSchema>;
+
+export const EnquiryType = z.enum(['Investment', 'Partnership', 'Media', 'Other'], {
+  error: 'Invalid enquiry type',
+});
+
+export const InvestorSchema = z.object({
+  fullName: z.string().min(1, 'Full name is required'),
+  organisation: z.string().min(1, 'Organisation is required'),
+  role: z.string().min(1, 'Role is required'),
+  enquiryType: EnquiryType,
+  email: z.string().email('Invalid email address'),
+  message: z.string().optional(),
+  gdprConsent: z.literal(true, { error: 'You must accept the privacy policy' }),
+});
+
+export type InvestorFormData = z.infer<typeof InvestorSchema>;
