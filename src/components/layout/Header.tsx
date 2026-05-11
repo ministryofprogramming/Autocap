@@ -1,37 +1,65 @@
-'use client'
+'use client';
 
-import { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { Menu, X, ChevronDown } from 'lucide-react'
-import { NAVIGATION_LINKS } from '@/lib/constants'
-import { usePathname } from 'next/navigation'
-import { LanguageSelector } from './LanguageSelector'
+import { useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { NAVIGATION_LINKS } from '@/lib/constants';
+import { usePathname } from 'next/navigation';
+import { useTranslations } from 'next-intl';
+import { LanguageSelector } from './LanguageSelector';
 
 type NavLink = {
-  label: string
-  href: string
-  submenu?: readonly { label: string; href: string }[]
-}
+  label: string;
+  href: string;
+  submenu?: readonly { label: string; href: string }[];
+};
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
-  const pathname = usePathname()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null);
+  const pathname = usePathname();
+  const t = useTranslations('nav');
+
+  const navLabel: Record<string, string> = {
+    '/': t('home'),
+    '/about': t('about.label'),
+    '/portfolio': t('portfolio'),
+    '/entrepreneurs': t('entrepreneurs'),
+    '/investors': t('investors'),
+    '/news': t('newsMedia'),
+    '/sustainability': t('sustainability'),
+    '/contact': t('contact'),
+  };
+
+  const submenuLabel: Record<string, string> = {
+    '/about': t('about.companyOverview'),
+    '/about/story': t('about.ourStory'),
+    '/about/team': t('about.leadershipBoard'),
+  };
+
+  const translatedLinks = NAVIGATION_LINKS.map(link => ({
+    ...link,
+    label: navLabel[link.href] ?? link.label,
+    submenu:
+      'submenu' in link && link.submenu
+        ? link.submenu.map(sub => ({ ...sub, label: submenuLabel[sub.href] ?? sub.label }))
+        : undefined,
+  }));
 
   const toggleMobileSubmenu = (label: string) => {
-    setMobileSubmenuOpen(mobileSubmenuOpen === label ? null : label)
-  }
+    setMobileSubmenuOpen(mobileSubmenuOpen === label ? null : label);
+  };
 
   const isLinkActive = (link: NavLink) => {
     if (link.submenu) {
       // Check if any submenu item is active
       return link.submenu.some(
-        (sublink) => pathname === sublink.href || pathname.startsWith(sublink.href + '/')
-      )
+        sublink => pathname === sublink.href || pathname.startsWith(sublink.href + '/')
+      );
     }
-    return pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'))
-  }
+    return pathname === link.href || (link.href !== '/' && pathname.startsWith(link.href + '/'));
+  };
 
   return (
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/95 backdrop-blur-sm">
@@ -58,7 +86,7 @@ export function Header() {
               className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <span className="sr-only">{mobileMenuOpen ? 'Close menu' : 'Open menu'}</span>
+              <span className="sr-only">{mobileMenuOpen ? t('closeMenu') : t('openMenu')}</span>
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" aria-hidden="true" />
               ) : (
@@ -69,8 +97,8 @@ export function Header() {
 
           {/* Desktop navigation */}
           <div className="hidden lg:flex lg:items-center lg:gap-x-8">
-            {NAVIGATION_LINKS.map((link) => {
-              const isActive = isLinkActive(link)
+            {translatedLinks.map(link => {
+              const isActive = isLinkActive(link);
 
               if ('submenu' in link && link.submenu) {
                 // Dropdown menu
@@ -89,9 +117,9 @@ export function Header() {
                     {/* Dropdown content */}
                     <div className="absolute left-0 top-full hidden pt-2 group-hover:block">
                       <div className="w-56 rounded-lg bg-white py-2 shadow-lg ring-1 ring-gray-200">
-                        {link.submenu.map((sublink) => {
+                        {link.submenu.map(sublink => {
                           // Use exact match for submenu items to avoid /about matching /about/team
-                          const isSubmenuActive = pathname === sublink.href
+                          const isSubmenuActive = pathname === sublink.href;
                           return (
                             <Link
                               key={sublink.href}
@@ -104,12 +132,12 @@ export function Header() {
                             >
                               {sublink.label}
                             </Link>
-                          )
+                          );
                         })}
                       </div>
                     </div>
                   </div>
-                )
+                );
               }
 
               // Regular link
@@ -125,7 +153,7 @@ export function Header() {
                 >
                   {link.label}
                 </Link>
-              )
+              );
             })}
 
             {/* Language Selector */}
@@ -137,8 +165,8 @@ export function Header() {
         {mobileMenuOpen && (
           <div className="lg:hidden">
             <div className="space-y-2 pb-6 pt-6">
-              {NAVIGATION_LINKS.map((link) => {
-                const isActive = isLinkActive(link)
+              {translatedLinks.map(link => {
+                const isActive = isLinkActive(link);
 
                 if ('submenu' in link && link.submenu) {
                   // Mobile submenu
@@ -159,9 +187,9 @@ export function Header() {
                       </button>
                       {mobileSubmenuOpen === link.label && (
                         <div className="ml-4 mt-2 space-y-2">
-                          {link.submenu.map((sublink) => {
+                          {link.submenu.map(sublink => {
                             // Use exact match for submenu items to avoid /about matching /about/team
-                            const isSubmenuActive = pathname === sublink.href
+                            const isSubmenuActive = pathname === sublink.href;
                             return (
                               <Link
                                 key={sublink.href}
@@ -175,12 +203,12 @@ export function Header() {
                               >
                                 {sublink.label}
                               </Link>
-                            )
+                            );
                           })}
                         </div>
                       )}
                     </div>
-                  )
+                  );
                 }
 
                 // Regular mobile link
@@ -195,7 +223,7 @@ export function Header() {
                   >
                     {link.label}
                   </Link>
-                )
+                );
               })}
 
               {/* Language Selector in Mobile Menu */}
@@ -207,5 +235,5 @@ export function Header() {
         )}
       </nav>
     </header>
-  )
+  );
 }

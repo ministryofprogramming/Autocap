@@ -28,6 +28,8 @@ export interface GetContentOptions<TCms, TFinal> {
   params?: Record<string, string>;
   /** Optional shape adapter mapping the raw CMS payload to the page shape. */
   mapper?: (cms: TCms) => TFinal;
+  /** Strapi i18n locale. Defaults to 'en'. */
+  locale?: string;
 }
 
 /** Thrown when the CMS request fails or returns no usable data. */
@@ -58,7 +60,7 @@ export async function getContent<TCms, TFinal = TCms>(
   slug: string,
   options: GetContentOptions<TCms, TFinal> = {}
 ): Promise<TFinal> {
-  const { revalidate = 60, params, mapper } = options;
+  const { revalidate = 60, params, mapper, locale } = options;
 
   const url = new URL(`/api/${slug}`, CMS_API_URL);
   if (params) {
@@ -66,6 +68,7 @@ export async function getContent<TCms, TFinal = TCms>(
       url.searchParams.set(key, value);
     }
   }
+  if (locale !== undefined) url.searchParams.set('locale', locale);
 
   let res: Response;
   try {
