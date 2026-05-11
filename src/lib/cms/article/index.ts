@@ -3,9 +3,13 @@ import { REVALIDATE_LOW } from '../revalidate';
 import type { CmsArticle, NewsArticle } from './types';
 import { articlesMapper } from './mapper';
 
-export async function getArticlesContent(revalidate = REVALIDATE_LOW): Promise<NewsArticle[]> {
+export async function getArticlesContent(
+  revalidate = REVALIDATE_LOW,
+  locale?: string
+): Promise<NewsArticle[]> {
   return getContent<CmsArticle[], NewsArticle[]>('news-articles', {
     revalidate,
+    locale,
     params: {
       'pagination[pageSize]': '100',
       'sort[0]': 'publishDate:desc',
@@ -16,10 +20,12 @@ export async function getArticlesContent(revalidate = REVALIDATE_LOW): Promise<N
 
 export async function getArticleBySlugContent(
   slug: string,
-  revalidate = REVALIDATE_LOW
+  revalidate = REVALIDATE_LOW,
+  locale?: string
 ): Promise<NewsArticle | null> {
   const results = await getContent<CmsArticle[], NewsArticle[]>('news-articles', {
     revalidate,
+    locale,
     params: {
       'filters[slug][$eq]': slug,
       'populate[fullContent][on][article.paragraph][populate]': '*',
