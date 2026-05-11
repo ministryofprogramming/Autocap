@@ -11,9 +11,14 @@ import { REVALIDATE_HIGH } from '../revalidate';
 import type { CmsContactPage, ContactContent } from './types';
 import { contactMapper } from './mapper';
 
-export async function getContactContent(revalidate = REVALIDATE_HIGH): Promise<ContactContent> {
+export async function getContactContent(
+  revalidate = REVALIDATE_HIGH,
+  locale?: string
+): Promise<ContactContent> {
   return getContent<CmsContactPage, ContactContent>('contact-page', {
     revalidate,
     mapper: contactMapper,
+    locale,
+    tags: ['contact-page'],
   });
 }
